@@ -24,11 +24,11 @@ elif [ -s $1 ]
 then
 	echo -e "This script is already existed, do you want to overwrite it?\n(Please input Y=Yes, N=No, default setting is No.)\n\c"
 	read parmch
-	if [ $parmch = "N" -o $parmch = "No" ]
+	if [ $parmch = "N" -o $parmch = "n" ]
 	then
 		echo -e "OK, please running the script again and put a other param then. This is a list of files in the folder.\n"`ls -A`
 		exit 1
-	elif [ $parmch = "Y" ]
+	elif [ $parmch = "Y" -o $parmch = "y" ]
 	then
 		cp $1 "$1.`date +%Y%m%d-%H%M%S`.bak"
 		writefunc $1
